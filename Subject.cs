@@ -70,15 +70,27 @@ namespace prn_lab1
 
         public int getTotalLessons()
         {
-            return 0;
+            return Theory + Pratice;
         }
         public override string ToString()
         {
             return
-        "";
+        $"{SubjectCode} {SubjectName} {Theory} {Pratice}";
         }
-        public void inputSubject() { }
-        public abstract void printInfo();
+        public void inputSubject() {
+           System.Console.WriteLine("Enter subject code");
+           SubjectCode = System.Console.ReadLine();
+           System.Console.WriteLine("Enter subject name");
+           SubjectName = System.Console.ReadLine();
+           System.Console.WriteLine("Enter theory");
+           Theory = Convert.ToInt32(Console.ReadLine());
+           System.Console.WriteLine("Enter pratice");
+           Pratice = Convert.ToInt32(Console.ReadLine());
+
+         }
+        public void printInfo(){
+            System.Console.WriteLine(this);
+        }
 
 
 

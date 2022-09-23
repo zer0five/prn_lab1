@@ -7,18 +7,20 @@ using System.Text.RegularExpressions;
 namespace prn_lab1
 {
 
-    public abstract class People
+    public class People
     {
+
         private string _idCard;
         public string IDCard
         {
             get { return _idCard; }
             set
             {
-                Regex regex = new Regex(@"\d{9,9}");
+                //validate idCard
+
                 string s = value;
 
-                while (!regex.IsMatch(s))
+                while (s.Length != 9 || !s.All(char.IsDigit))
                 {
                     System.Console.Write("Invalid IDCard, please try again: ");
                     s = Console.ReadLine();
@@ -32,7 +34,21 @@ namespace prn_lab1
         public string FullName
         {
             get { return _fullName; }
-            set { _fullName = value; }
+            set
+            {
+                Regex regex = new Regex(@"^[a-zA-Z\s]*$");
+                //validate fullName
+
+                string s = value.Trim();
+                
+                while (s.Length < 1 || s.Length > 50 || !regex.IsMatch(s))
+                {
+                    System.Console.Write("Invalid name, please try again: ");
+                    s = Console.ReadLine().Trim();
+                }
+
+                _fullName = s;
+            }
         }
         private DateTime _birthday;
         public DateTime Birthday
@@ -67,14 +83,16 @@ namespace prn_lab1
         {
         }
 
-        override public string ToString() { return "People"; }
+        override public string ToString() { return ""; }
         public int getAge() { return 0; }
         public void inputPeople()
         {
-            System.Console.WriteLine("Enter IDCard");
+            System.Console.Write("Enter IDCard: ");
             IDCard = Console.ReadLine();
+            System.Console.Write("Enter full name: ");
+            FullName = Console.ReadLine();
 
         }
-        public abstract void printInfo();
+        // public abstract void printInfo();
     }
 }

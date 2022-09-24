@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
-
+//todo : change to abstract class
 namespace prn_lab1
 {
 
@@ -40,7 +40,7 @@ namespace prn_lab1
                 //validate fullName
 
                 string s = value.Trim();
-                
+
                 while (s.Length < 1 || s.Length > 50 || !regex.IsMatch(s))
                 {
                     System.Console.Write("Invalid name, please try again: ");
@@ -60,7 +60,23 @@ namespace prn_lab1
         public string Email
         {
             get { return _email; }
-            set { _email = value; }
+            set
+            {
+                Regex re = new Regex(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
+                                    @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
+                                     @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
+                string s = value;
+                while (!re.IsMatch(s) && s.Length > 0)
+                {
+                    System.Console.Write("Invalid email,please enter again: ");
+                    s = Console.ReadLine().Trim();
+
+                }
+
+
+                _email = s;
+
+            }
         }
         private string _phone;
         public string Phone
@@ -91,6 +107,9 @@ namespace prn_lab1
             IDCard = Console.ReadLine();
             System.Console.Write("Enter full name: ");
             FullName = Console.ReadLine();
+            //todo input birthday
+            System.Console.Write("Enter email address: ");
+            Email = Console.ReadLine();
 
         }
         // public abstract void printInfo();

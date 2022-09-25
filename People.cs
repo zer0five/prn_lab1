@@ -57,12 +57,13 @@ namespace prn_lab1
             get { return _birthday; }
             set
             {
-                _birthday = value;
+
                 while (true)
                 {
                     if (value < new DateTime(1999, 1, 1) && value > DateTime.Today)
                     {
                         System.Console.Write("Invalid birthday, please try again: ");
+                        
 
 
                     }
@@ -154,7 +155,7 @@ namespace prn_lab1
             System.Console.Write("Enter full name: ");
             FullName = Console.ReadLine();
             //todo input birthday
-
+            Birthday = DateTime.Parse(Console.ReadLine());
             System.Console.Write("Enter email address: ");
             Email = Console.ReadLine();
             //todo : adresss

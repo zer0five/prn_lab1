@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 namespace prn_lab1
 {
 
-    public class People
+    public abstract class People
     {
 
         private string _idCard;

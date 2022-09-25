@@ -49,6 +49,20 @@ namespace prn_lab1
                 }
         }
 
+        public Student(string RollNo, string ClassNo, string iDCard, string fullName, DateTime birthday, string email, string phone, string address): base( iDCard, fullName, birthday,  email,  phone, address)
+        {
+            this.RollNo = RollNo;
+            this.ClassNo = ClassNo;
+            this.IDCard = iDCard;
+            this.FullName = fullName;
+            this.Birthday = birthday;
+            this.Email = email;
+            this.Phone = phone;
+            this.Address = address;
+        }
+
+        public Student():base(){}
+
         // public override void printInfo()
         // {
             
@@ -57,6 +71,17 @@ namespace prn_lab1
         public double getAvgMark() {return 0;}
 
         public void inputStudent() {
+            System.Console.Write("Enter IDCard: ");
+            IDCard = Console.ReadLine();
+            System.Console.Write("Enter full name: ");
+            FullName = Console.ReadLine();
+            // Birthday = DateTime.Parse(Console.ReadLine());
+            System.Console.Write("Enter email address: ");
+            Email = Console.ReadLine();
+            System.Console.Write("Enter address: ");
+            Address = Console.ReadLine();
+            System.Console.Write("Enter phone number (e.g 0123456789): ");
+            Phone = Console.ReadLine();
             System.Console.Write("Enter RollNo: ");
             RollNo = Console.ReadLine();
             System.Console.Write("Enter ClassNo: ");

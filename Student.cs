@@ -6,50 +6,53 @@ using System.Text.RegularExpressions;
 
 namespace prn_lab1
 {
-    public class Student: People
+    public class Student : People
     {
         private string _rollNo;
         public string RollNo
         {
             get { return _rollNo; }
-            set { 
+            set
+            {
 
                 //* Validate RollNo
                 Regex regex = new Regex(@"^A12\d{2}[1-9]$");
 
                 string s = value.Trim();
 
-                while(!regex.IsMatch(s))
+                while (!regex.IsMatch(s))
                 {
                     System.Console.Write("Invalid RollNo, please try again (A12001 - A12999): ");
                     s = Console.ReadLine().Trim();
 
                 }
-                _rollNo = s; }
+                _rollNo = s;
+            }
         }
-        
+
         private string _classNo;
         public string ClassNo
         {
             get { return _classNo; }
-            set { 
+            set
+            {
 
                 //* Validate ClassNo
                 Regex regex = new Regex(@"^(CP|DI|DM)(?:19\d{2}|20[01][0-9]|202[01]|2022)(0[1-9]|1[012])(G|H|J|I|K|F|M)\d{2}$");
 
                 string v = value.Trim();
-                
-                while(!regex.IsMatch(v))
+
+                while (!regex.IsMatch(v))
                 {
                     System.Console.Write("Invalid ClassNo, please try again: ");
                     v = Console.ReadLine();
-                } 
-                
-                _classNo = v;
                 }
+
+                _classNo = v;
+            }
         }
 
-        public Student(string RollNo, string ClassNo, string iDCard, string fullName, DateTime birthday, string email, string phone, string address): base( iDCard, fullName, birthday,  email,  phone, address)
+        public Student(string RollNo, string ClassNo, string iDCard, string fullName, DateTime birthday, string email, string phone, string address) : base(iDCard, fullName, birthday, email, phone, address)
         {
             this.RollNo = RollNo;
             this.ClassNo = ClassNo;
@@ -61,16 +64,17 @@ namespace prn_lab1
             this.Address = address;
         }
 
-        public Student():base(){}
+        public Student() : base() { }
 
         // public override void printInfo()
         // {
-            
+
         // }
 
-        public double getAvgMark() {return 0;}
+        public double getAvgMark() { return 0; }
 
-        public void inputStudent() {
+        public void inputStudent()
+        {
             System.Console.Write("Enter IDCard: ");
             IDCard = Console.ReadLine();
             System.Console.Write("Enter full name: ");

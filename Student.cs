@@ -72,7 +72,14 @@ namespace prn_lab1
 
         public override void printInfo()
         {
-
+            Console.WriteLine("RollNo: " + RollNo);
+            Console.WriteLine("ClassNo: " + ClassNo);
+            Console.WriteLine("IDCard: " + IDCard);
+            Console.WriteLine("FullName: " + FullName);
+            Console.WriteLine("Birthday: " + Birthday);
+            Console.WriteLine("Email: " + Email);
+            Console.WriteLine("Phone: " + Phone);
+            Console.WriteLine("Address: " + Address);
         }
 
         public double getAvgMark() { return 0; }

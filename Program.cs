@@ -12,8 +12,8 @@ namespace prn_lab1
             // Student s = new Student();
             // s.inputStudent();
             
-            Student s = new Student();
-            s.inputStudent();
+            // Student s = new Student();
+            // s.inputStudent();
         }
     }
 }

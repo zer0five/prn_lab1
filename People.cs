@@ -51,24 +51,25 @@ namespace prn_lab1
                 _fullName = s;
             }
         }
-        private DateTime _birthday;
-        public DateTime Birthday
+        private string _birthday;
+        public string Birthday
         {
             get { return _birthday; }
             set
             {
+
                 _birthday = value;
                 while (true)
                 {
-                    if (value < new DateTime(1999, 1, 1) && value > DateTime.Today)
+                    DateTime birthday = DateTime.ParseExact(value, "dd/MM/yyyy", null);
+                    if (birthday <= new DateTime(1990, 1, 1) || birthday >= DateTime.Now)
                     {
-                        System.Console.Write("Invalid birthday, please try again: ");
-                        //todo: throw exception
-                        //todo: enter again
-
-
+                        System.Console.Write("Birthday is invalid,please try again:(e.g 05/07/2002) ");
+                        _birthday = Console.ReadLine();
 
                     }
+                    break;
+
                 }
 
             }
@@ -133,7 +134,7 @@ namespace prn_lab1
             }
         }
 
-        public People(string iDCard, string fullName, DateTime birthday, string email, string phone, string address)
+        public People(string iDCard, string fullName, string birthday, string email, string phone, string address)
         {
 
             IDCard = iDCard;
@@ -155,21 +156,36 @@ namespace prn_lab1
 
         public int getAge()
         {
-            //cacluate the age 
-            DateTime today = DateTime.Today;
-            int age = today.Year - _birthday.Year;
 
-            return age;
+
+
+            return 0;
         } //todo: getAge from birthday
         public void inputPeople()
         {
+            bool check = false;
             System.Console.Write("Enter IDCard: ");
             IDCard = Console.ReadLine();
             System.Console.Write("Enter full name: ");
             FullName = Console.ReadLine();
-            // System.Console.Write("Please enter your birthday: ");
             //todo input birthday
-            Birthday = DateTime.Parse(Console.ReadLine());
+            System.Console.Write("Please enter your birthday: ");
+            while (!check)
+            {
+                try
+                {
+                    Birthday = Console.ReadLine();
+                    check = true;
+
+                }
+                catch (Exception)
+                {
+                    System.Console.Write("Invalid birthday,please try again:(e.g 05/07/2002) ");
+                }
+
+            }
+
+
             System.Console.Write("Enter email address: ");
             Email = Console.ReadLine();
             //todo : adresss
@@ -177,6 +193,8 @@ namespace prn_lab1
             Address = Console.ReadLine();
             System.Console.Write("Enter phone number (e.g 0123456789): ");
             Phone = Console.ReadLine();
+
+
 
 
         }

@@ -7,10 +7,11 @@ namespace prn_lab1
         static void Main(string[] args)
         {
 
-            People p = new People();
-            p.inputPeople();
+            // People p = new People();
+            // p.inputPeople();
             // Student s = new Student();
             // s.inputStudent();
+            
         }
     }
 }

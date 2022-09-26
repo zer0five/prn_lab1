@@ -49,10 +49,10 @@ namespace prn_lab1
                 }
         }
 
-        // public override void printInfo()
-        // {
+        public override void printInfo()
+        {
             
-        // }
+        }
 
         public double getAvgMark() {return 0;}
 

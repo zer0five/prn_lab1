@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 namespace prn_lab1
 {
 
-    public class People
+    public abstract class People
     {
 
         private string _idCard;
@@ -57,13 +57,15 @@ namespace prn_lab1
             get { return _birthday; }
             set
             {
-
+                _birthday = value;
                 while (true)
                 {
                     if (value < new DateTime(1999, 1, 1) && value > DateTime.Today)
                     {
                         System.Console.Write("Invalid birthday, please try again: ");
-                        
+                        //todo: throw exception
+                        //todo: enter again
+
 
 
                     }
@@ -146,14 +148,26 @@ namespace prn_lab1
         {
         }
 
-        override public string ToString() { return ""; }
-        public int getAge() { return 0; }
+        override public string ToString()
+        {
+            return FullName + " " + getAge() + " " + Phone;
+        }
+
+        public int getAge()
+        {
+            //cacluate the age 
+            DateTime today = DateTime.Today;
+            int age = today.Year - _birthday.Year;
+
+            return age;
+        } //todo: getAge from birthday
         public void inputPeople()
         {
             System.Console.Write("Enter IDCard: ");
             IDCard = Console.ReadLine();
             System.Console.Write("Enter full name: ");
             FullName = Console.ReadLine();
+            // System.Console.Write("Please enter your birthday: ");
             //todo input birthday
             Birthday = DateTime.Parse(Console.ReadLine());
             System.Console.Write("Enter email address: ");
@@ -166,6 +180,6 @@ namespace prn_lab1
 
 
         }
-        // public abstract void printInfo();
+        public abstract void printInfo();
     }
 }

@@ -52,11 +52,11 @@ namespace prn_lab1
             }
         }
 
-        public override void printInfo()
-        {
-            
-        }
-        public Student(string RollNo, string ClassNo, string iDCard, string fullName, DateTime birthday, string email, string phone, string address) : base(iDCard, fullName, birthday, email, phone, address)
+        // public override void printInfo()
+        // {
+
+        // }
+        public Student(string RollNo, string ClassNo, string iDCard, string fullName, string birthday, string email, string phone, string address) : base(iDCard, fullName, birthday, email, phone, address)
         {
             this.RollNo = RollNo;
             this.ClassNo = ClassNo;
@@ -70,10 +70,10 @@ namespace prn_lab1
 
         public Student() : base() { }
 
-        // public override void printInfo()
-        // {
+        public override void printInfo()
+        {
 
-        // }
+        }
 
         public double getAvgMark() { return 0; }
 
@@ -83,7 +83,8 @@ namespace prn_lab1
             IDCard = Console.ReadLine();
             System.Console.Write("Enter full name: ");
             FullName = Console.ReadLine();
-            // Birthday = DateTime.Parse(Console.ReadLine());
+            System.Console.Write("Enter your birthday: ");
+            Birthday = Console.ReadLine();
             System.Console.Write("Enter email address: ");
             Email = Console.ReadLine();
             System.Console.Write("Enter address: ");
